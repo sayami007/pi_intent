@@ -6,24 +6,47 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private EditText etUserName;
-    private Button btnSend;
+public class MainActivity extends AppCompatActivity {
+    private TextView tvUsername;
+    private Button getName, getAge;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        etUserName = findViewById(R.id.etUsername);
-        btnSend = findViewById(R.id.btnSend);
-        btnSend.setOnClickListener(this);
+        tvUsername = findViewById(R.id.tvUsername);
+        getName = findViewById(R.id.getName);
+        getAge = findViewById(R.id.getAge);
+        getName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), GetNameActivity.class);
+                startActivityForResult(intent, Constant.NAME_CODE);
+            }
+        });
+        getAge.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), GetAgetActivity.class);
+                startActivityForResult(intent, Constant.AGE_CODE);
+            }
+        });
+
     }
 
     @Override
-    public void onClick(View v) {
-        Intent intent = new Intent(getApplicationContext(), DisplayActivity.class);
-        intent.putExtra(Constant.KEY_USERNAME, etUserName.getText().toString());
-        startActivity(intent);
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == Constant.NAME_CODE) {
+            if (resultCode == Constant.NAME_CODE_RESULT) {
+                tvUsername.setText(data.getStringExtra(Constant.KEY_USERNAME));
+            }
+        } else if (requestCode == Constant.AGE_CODE) {
+            if (resultCode == Constant.AGE_CODE_RESULT) {
+                tvUsername.setText(data.getStringExtra(Constant.KEY_USERNAME));
+            }
+        }
+
     }
 }

@@ -5,16 +5,16 @@
     android:orientation="vertical">
 
     <EditText
-        android:id="@+id/tvUsername"
+        android:id="@+id/tvAge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="40sp"
-        tools:hint="username" />
+        tools:hint="Age" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Send Name"
-        android:id="@+id/sendButton"
+        android:text="Send Age"
+        android:id="@+id/sendAge"
         />
 </LinearLayout>

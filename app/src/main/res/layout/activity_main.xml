@@ -5,17 +5,25 @@
     android:orientation="vertical"
     android:padding="10dp">
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:hint="Username Here"
-        android:id="@+id/etUsername"
-        android:inputType="text" />
 
     <Button
-        android:id="@+id/btnSend"
+        android:id="@+id/getName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Send" />
+        android:text="Load Name" />
+
+    <Button
+        android:id="@+id/getAge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Load Age" />
+
+
+    <TextView
+        android:id="@+id/tvUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="40sp"
+        tools:hint="Username Here" />
 
 </LinearLayout>
